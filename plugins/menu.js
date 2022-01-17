@@ -26,7 +26,7 @@ let tags = {
   'quotes': 'MENU QUOTES',
   'info': 'MENU INFO',
 }
-let messageee = await prepareWAMessageMedia({ video: fs.readFileSync('./media/shiro.mp4'), gifPlayback: true }, { upload: conn.waUploadToServer })
+let message = await prepareWAMessageMedia({ video: fs.readFileSync('./media/shiro.mp4'), gifPlayback: true }, { upload: conn.waUploadToServer })
 const defaultMenu = {
   before: `
 ╭────ꕥ %me ꕥ────
@@ -96,7 +96,7 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
     if (process.send) {
       process.send('uptime')
       _muptime = await new Promise(resolve => {
-        process.once('message', resolve)
+        process.once('messageee', resolve)
         setTimeout(resolve, 1000)
       }) * 1000
     }
@@ -158,7 +158,7 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
       readmore: readMore
     }
     text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
-     const template = generateWAMessageFromContent(m.chat, proto.Messageee.fromObject({
+     const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
      templateMessage: {
          hydratedTemplate: {
            videoMessage: message.videoMessage,
@@ -204,7 +204,7 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
     //conn.reply(m.chat, text.trim(), m)
     return await conn.relayMessage(
          m.chat,
-         template.messageee,
+         template.message,
          { messageId: template.key.id }
      )
   } catch (e) {
