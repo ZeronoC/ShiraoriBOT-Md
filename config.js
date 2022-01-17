@@ -30,7 +30,7 @@ global.APIKeys = { // APIKey Here
 global.stiker_wait = 'Stiker sedang dibuat'
 global.packname = 'ZERONE Multi device'
 global.author = 'iy.yan_'
-global.email = 'wakabahiiro5@gmail.com'
+global.email = 'iyyan.ptr@gmail.com'
 global.fla = 'https://www6.flamingtext.com/net-fu/proxy_form.cgi?&imageoutput=true&script=runner-logo&doScale=true&scaleWidth=800&scaleHeight=500&fontsize=100&text='
 global.wm = '© YanZerone@2022'
 global.media = 'https://telegra.ph/file/5d45a3d1e12726d98c5e4.jpg'
