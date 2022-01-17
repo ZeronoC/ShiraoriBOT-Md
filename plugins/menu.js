@@ -96,7 +96,7 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
     if (process.send) {
       process.send('uptime')
       _muptime = await new Promise(resolve => {
-        process.once('messageee', resolve)
+        process.once('message', resolve)
         setTimeout(resolve, 1000)
       }) * 1000
     }
