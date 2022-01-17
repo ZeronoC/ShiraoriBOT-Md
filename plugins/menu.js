@@ -26,7 +26,7 @@ let tags = {
   'quotes': 'MENU QUOTES',
   'info': 'MENU INFO',
 }
-let message = await prepareWAMessageMedia({ video: fs.readFileSync('./media/shiro.mp4'), gifPlayback: true }, { upload: conn.waUploadToServer })
+let messagegif = await prepareWAMessageMedia({ video: fs.readFileSync('./media/shiro.mp4'), gifPlayback: true }, { upload: conn.waUploadToServer })
 const defaultMenu = {
   before: `
 ╭────ꕥ %me ꕥ────
@@ -161,7 +161,7 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
      const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
      templateMessage: {
          hydratedTemplate: {
-           videoMessage: message.videoMessage,
+           videoMessage: messagegif.videoMessage,
            hydratedContentText: text.trim(),
            hydratedFooterText: wm,
            hydratedButtons: [{
@@ -204,7 +204,7 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
     //conn.reply(m.chat, text.trim(), m)
     return await conn.relayMessage(
          m.chat,
-         template.message,
+         template.messagegif,
          { messageId: template.key.id }
      )
   } catch (e) {
