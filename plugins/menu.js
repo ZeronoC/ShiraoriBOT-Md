@@ -26,7 +26,7 @@ let tags = {
   'quotes': 'MENU QUOTES',
   'info': 'MENU INFO',
 }
-let message = await prepareWAMessageMedia({ video: fs.readFileSync('./media/shiro.mp4'), gifPlayback: true }, { upload: conn.waUploadToServer })
+let messageee = await prepareWAMessageMedia({ video: fs.readFileSync('./media/shiro.mp4'), gifPlayback: true }, { upload: conn.waUploadToServer })
 const defaultMenu = {
   before: `
 ╭────ꕥ %me ꕥ────
@@ -158,7 +158,7 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
       readmore: readMore
     }
     text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
-     const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
+     const template = generateWAMessageFromContent(m.chat, proto.Messageee.fromObject({
      templateMessage: {
          hydratedTemplate: {
            videoMessage: message.videoMessage,
@@ -167,14 +167,14 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
            hydratedButtons: [{
              urlButton: {
                displayText: '💠 Source Code',
-               url: 'https://github.com/ilmanhdyt/ShiraoriBOT-Md'
+               url: 'https://github.com/ZeronoC'
              }
 
            },
              {
              callButton: {
                displayText: 'Nomor Owner',
-               PhoneNumber: '0813-5104-7727'
+               PhoneNumber: '0812-8680-0298'
              }
 
            },
@@ -204,7 +204,7 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
     //conn.reply(m.chat, text.trim(), m)
     return await conn.relayMessage(
          m.chat,
-         template.message,
+         template.messageee,
          { messageId: template.key.id }
      )
   } catch (e) {
